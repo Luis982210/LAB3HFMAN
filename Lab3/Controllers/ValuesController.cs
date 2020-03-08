@@ -51,9 +51,9 @@ namespace Lab3.Controllers
                 //UploadedFile.CopyTo(ServerFile);
                 //ServerFile.Close();
                 hf.Compress(RServerPath, WServerPath);
-                //string HistLine = hf.GetFilesMetrics(UploadedFile.FileName, RServerPath, WServerPath);
-                //History.AddToHistory(HistLine);
-                //this.WriteOnHistory(HistLine);
+                string HistLine = hf.GetFilesMetrics(Path.GetFileName(RServerPath), RServerPath, WServerPath);
+                History.AddToHistory(HistLine);
+                this.WriteOnHistory(HistLine);
             }
         }
         // POST api/values
@@ -79,9 +79,9 @@ namespace Lab3.Controllers
                 {
                     FileToWrite.Write(Encoding.Default.GetBytes(file));
                 }
-                //string HistLine = hf.GetFilesMetrics(UploadedFile.FileName, RServerPath, WServerPath);
-                //History.AddToHistory(HistLine);
-                //this.WriteOnHistory(HistLine);
+                string HistLine = hf.GetFilesMetrics(Path.GetFileName(RServerPath), RServerPath, WServerPath);
+                History.AddToHistory(HistLine);
+                this.WriteOnHistory(HistLine);
             }
         }
         private void WriteOnHistory(string NewLine)
